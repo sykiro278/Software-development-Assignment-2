@@ -1,0 +1,125 @@
+GIT COMMANDS USED IN THIS ASSIGNMENT
+Student    : Varun (2024eb01216)
+Repository : https://github.com/sykiro278/Software-development-Assignment-2
+
+Each entry: number. command
+            -> what it does
+------------------------------------------------------------
+
+[One-time setup]
+1.  git config --global user.name "Varun"
+    -> Sets the name that is saved as the author of every commit.
+
+2.  git config --global user.email "varunjoshi278@gmail.com"
+    -> Sets the email saved with every commit. Same email as the GitHub
+       account, so GitHub links the commits to the profile.
+
+[Step 1 - Local repository setup]
+3.  git init
+    -> Turns the current folder into a Git repository by creating a
+       hidden .git folder.
+
+4.  git status
+    -> Shows the current branch and which files are new, changed or
+       staged.
+
+[Step 2 - Commits, branching and merging]
+5.  git add .
+    -> Stages every new or changed file in the folder for the next
+       commit.
+
+6.  git commit -m "Initial commit with home and about pages"
+    -> Saves the staged files as the first snapshot of the project.
+
+7.  git branch -M main
+    -> Renames the current branch to main, the default branch name
+       used by GitHub.
+
+8.  git add about.html
+    -> Stages only the edited about.html file.
+
+9.  git commit -m "Update about page with course details"
+    -> Saves the about.html change as the second commit.
+
+10. git branch feature
+    -> Creates a new branch called feature at the current commit.
+
+11. git switch feature
+    -> Moves to the feature branch. (git checkout feature does the
+       same thing on older Git versions.)
+
+12. git branch
+    -> Lists all local branches. The * marks the current one.
+
+13. git add index.html
+    -> Stages the change made to index.html on the feature branch.
+
+14. git commit -m "Add weekly plan to home page"
+    -> Commits the index.html change on the feature branch only.
+
+15. git switch main
+    -> Moves back to the main branch.
+
+16. git merge --no-ff --no-edit feature
+    -> Merges feature into main. --no-ff always creates a merge commit
+       so the branch stays visible in history; --no-edit keeps the
+       default merge message.
+
+17. git log --oneline --graph --decorate --all
+    -> Shows the history of all branches as a graph, one line per
+       commit, with branch names next to the commits.
+
+[Step 3 - .gitignore]
+18. git status --ignored
+    -> Shows the normal status plus a separate list of files that Git
+       is ignoring because of .gitignore.
+
+19. git add .gitignore
+    -> Stages the new .gitignore file.
+
+20. git commit -m "Add .gitignore for log files and build folder"
+    -> Commits the ignore rules so they apply for everyone using the
+       repository.
+
+[Step 4 - Undo operation]
+21. git commit -am "Add maintenance banner to home page"
+    -> -a stages every modified tracked file and commits it in one
+       step. This is the extra commit that gets undone.
+
+22. git log --oneline -3
+    -> Shows only the last 3 commits in short form.
+
+23. git revert --no-edit HEAD
+    -> Undoes the latest commit by adding a new commit with the
+       opposite changes. Old history is kept, so it is safe after
+       pushing.
+
+24. git log --oneline -4
+    -> Shows the last 4 commits, including the original commit and
+       the revert commit.
+
+25. git diff HEAD~2 HEAD
+    -> Compares the commit before the banner with the revert commit.
+       No output means the files are back to the earlier state.
+
+[Step 5 - GitHub integration]
+26. git remote add origin https://github.com/sykiro278/Software-development-Assignment-2.git
+    -> Connects the local repository to the empty GitHub repository
+       under the short name origin.
+
+27. git remote -v
+    -> Lists the remote URLs used for fetch and push.
+
+28. git push -u origin --all
+    -> Uploads every local branch (main and feature) to GitHub and
+       sets upstream tracking, so later pushes only need git push.
+
+[Step 6 - Command documentation]
+29. git add git_commands.txt
+    -> Stages this file.
+
+30. git commit -m "Add git_commands.txt with all commands used"
+    -> Commits this file to the repository.
+
+31. git push
+    -> Sends the new commit on main to GitHub.
